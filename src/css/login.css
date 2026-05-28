@@ -105,7 +105,7 @@
 }
 
 .btn-confirm:hover {
-    background: #cacaca;    
+    background: #cacaca;
 }
 
 .login-wrapper div {
@@ -164,4 +164,80 @@
 
 .login-footer p a:hover {
     color: #cacaca;
+}
+
+
+/* responsividade */
+@media (width < 780px) {
+
+    .login-main {
+        padding: 20px;
+        justify-content: flex-start;
+        height: 100dvh;
+    }
+
+    .login-header {
+        padding: 18px 20px;
+        justify-content: center;
+    }
+
+    .login-header img {
+        width: 70px;
+    }
+
+    .login-wrapper {
+        width: 100%;
+        padding-top: 80px;
+    }
+
+    .login-wrapper img {
+        width: 70px;
+    }
+
+    .login-wrapper h1 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .login-wrapper h2 {
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .login-wrapper form {
+        width: 100%;
+        align-items: center;
+    }
+
+    .login-input {
+        width: 100%;
+    }
+
+    .btn-confirm {
+        width: 100%;
+    }
+
+    .login-wrapper div {
+        font-size: 0.75rem;
+    }
+
+    .login-wrapper div hr {
+        width: 80px;
+    }
+
+    .login-wrapper p {
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .login-footer {
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .login-footer p {
+        font-size: 0.65rem;
+        text-align: center;
+    }
 }
