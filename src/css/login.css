@@ -105,12 +105,24 @@
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
+    transition: background 0.2s ease;
     background: #fff;
+    color: #000000;
+    gap: 5px;
 }
 
 .btn-confirm:hover {
     background: #cacaca;
+}
+
+.btn-confirm-loading {
+    padding: 5px;
+}
+
+.btn-confirm img {
+    display: flex;
+    width: fit-content;
+    height: 27px;
 }
 
 .login-wrapper div {

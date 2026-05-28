@@ -6,6 +6,7 @@ import { login, register } from '../services/auth'
 import logo from '../assets/svg/logo.svg'
 import icon from '../assets/svg/logo-icon.svg'
 import { Lock, Mail, Unlock, User } from '@geist-ui/icons'
+import imgLoading from '../assets/img/loading.gif'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -128,7 +129,6 @@ const Login = () => {
                             placeholder='senha'
                             value={form.password}
                             onChange={handleChange}
-                            autoComplete={isRegister ? 'new-password' : 'current-password'}
                             required
                             disabled={loading}
                         />
@@ -136,8 +136,8 @@ const Login = () => {
 
                     {error && <p className='login-error'>{error}</p>}
 
-                    <button type='submit' className='btn-confirm' disabled={loading}>
-                        {loading ? 'Aguarde...' : isRegister ? 'Criar conta' : 'Continuar'}
+                    <button type='submit' className={`btn-confirm ${loading && 'btn-confirm-loading'}`} disabled={loading}>
+                        {loading ? <img src={imgLoading} /> : isRegister ? 'Criar conta' : 'Continuar'}
                     </button>
                 </form>
 
