@@ -2,9 +2,11 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Login from "./routes/Login"
 import Home from "./routes/Home"
 import ProtectedRoute from "./routes/ProtectedRoute"
+import { ConsoleBanner } from "./hooks/ConsoleBanner"
 
 const App = () => {
 
+  ConsoleBanner()
 
   return (
     <BrowserRouter>
