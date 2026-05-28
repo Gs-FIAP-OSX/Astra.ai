@@ -59,6 +59,10 @@ const Login = () => {
             window.location.href = '/home'
         } catch (err) {
             setError(err.message)
+            clearTimeout(window.__errorTimer)
+            window.__errorTimer = setTimeout(() => {
+                setError('')
+            }, 4000)
         } finally {
             setLoading(false)
         }

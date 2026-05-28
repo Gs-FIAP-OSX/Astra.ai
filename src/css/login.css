@@ -80,6 +80,11 @@
     color: var(--light-color);
 }
 
+.login-input input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #000000 inset !important;
+    -webkit-text-fill-color: var(--light-color) !important;
+}
+
 .login-input button {
     display: flex;
     padding: 0;
@@ -166,6 +171,10 @@
     color: #cacaca;
 }
 
+.login-error {
+    margin: 0 auto;
+    color: #ff5050 !important;
+}
 
 /* responsividade */
 @media (width < 780px) {
