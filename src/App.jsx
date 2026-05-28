@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Login from "./routes/Login"
+import Home from "./routes/Home"
 
 const App = () => {
 
@@ -9,6 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigate to='/home' />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )

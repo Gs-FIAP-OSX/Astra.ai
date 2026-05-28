@@ -1,10 +1,158 @@
+import '../css/login.css'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useUser } from '../hooks/useUser'
+import { login, register } from '../services/auth'
+import logo from '../assets/svg/logo.svg'
+import icon from '../assets/svg/logo-icon.svg'
+import { Lock, Mail, Unlock, User } from '@geist-ui/icons'
 
 const Login = () => {
-  return (
-    <div>
-      <h1>login</h1>
-    </div>
-  )
+    const navigate = useNavigate()
+    const [searchParams] = useSearchParams()
+
+    const view = searchParams.get('view')
+    const isRegister = view === 'register'
+
+    const { user } = useUser()
+
+    const [showPassword, setShowPassword] = useState(false)
+
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        password: ''
+    })
+
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+
+    useEffect(() => {
+        if (user) navigate('/home', { replace: true })
+    }, [user, navigate])
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+
+        setForm((prev) => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        setError('')
+        setLoading(true)
+
+        try {
+            if (isRegister) {
+                await register(form.name, form.email, form.password)
+                localStorage.setItem('first_login', 'true')
+                window.location.href = '/home'
+                return
+            }
+
+            await login(form.email, form.password)
+            localStorage.setItem('first_login', 'false')
+            window.location.href = '/home'
+        } catch (err) {
+            setError(err.message)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    return (
+        <main className='login-main'>
+            <header className='login-header'>
+                <img src={logo} alt="ASTRA" />
+            </header>
+
+            <section className='login-wrapper'>
+                <img src={icon} alt="ASTRA Icon" />
+                <h1>{isRegister ? 'Crie sua conta' : 'Faça login na sua conta'}</h1>
+                <h2>{isRegister ? 'Comece a decifrar com o ASTRA.' : 'Continue decifrando com o ASTRA.'}</h2>
+
+                <form onSubmit={handleSubmit} noValidate>
+
+                    {isRegister && (
+                        <article className='login-input'>
+                            <User size={18} />
+
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder='nome'
+                                value={form.name}
+                                onChange={handleChange}
+                                autoComplete='name'
+                                required
+                                disabled={loading}
+                            />
+                        </article>
+                    )}
+
+                    <article className='login-input'>
+                        <Mail size={18} />
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder='e-mail'
+                            value={form.email}
+                            onChange={handleChange}
+                            autoComplete='email'
+                            required
+                            disabled={loading}
+                        />
+                    </article>
+
+                    <article className='login-input'>
+                        <button
+                            type='button'
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+                        >
+                            {showPassword ? <Unlock size={18} /> : <Lock size={18} />}
+                        </button>
+
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            name="password"
+                            placeholder='senha'
+                            value={form.password}
+                            onChange={handleChange}
+                            autoComplete={isRegister ? 'new-password' : 'current-password'}
+                            required
+                            disabled={loading}
+                        />
+                    </article>
+
+                    {error && <p className='login-error'>{error}</p>}
+
+                    <button type='submit' className='btn-confirm' disabled={loading}>
+                        {loading ? 'Aguarde...' : isRegister ? 'Criar conta' : 'Continuar'}
+                    </button>
+                </form>
+
+                <div className='login-divider'><hr />ou<hr /></div>
+
+                <p>
+                    {isRegister ? (
+                        <>Já possui uma conta? <Link to='?view=login'>Entrar</Link></>
+                    ) : (
+                        <>Não tem uma conta ainda? <Link to='?view=register'>Registrar</Link></>
+                    )}
+                </p>
+            </section>
+
+            <footer className='login-footer'>
+                <p>Ao continuar, você concorda com nossos <Link to='/terms'>Termos de Serviço</Link> e nossa <Link to='/privacy'>Política de Privacidade</Link>.</p>
+            </footer>
+        </main>
+    )
 }
 
 export default Login
