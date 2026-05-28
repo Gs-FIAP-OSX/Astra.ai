@@ -1,11 +1,20 @@
 .aside-main {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 10px;
     width: 290px;
     height: 100vh;
     border-right: 1px solid #1e1e1e;
     overflow-x: hidden;
+    transition: width 0.15s ease;
+}
+
+.aside-main.collapsed {
+    width: 50px;
+}
+
+.aside-main.collapsed .aside-header img {
+    display: none;
 }
 
 .aside-header {
@@ -23,8 +32,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 26px;
+    width: 30px;
+    height: 25px;
     border: none;
     border-radius: 4px;
     background: transparent;
