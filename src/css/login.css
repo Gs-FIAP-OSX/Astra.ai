@@ -152,11 +152,11 @@
 .login-footer p {
     font-size: 0.7rem;
     font-weight: 200;
-    color: #969696;
+    color: #878787;
 }
 
 .login-footer p a {
-    color: #969696;
+    color: #878787;
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: var(--transition);
