@@ -141,6 +141,7 @@
     flex-direction: column;
     align-items: center;
     overflow: auto;
+    scroll-behavior: smooth !important;
 }
 
 .chat-main::-webkit-scrollbar {
@@ -157,6 +158,7 @@
     display: flex;
     margin-right: -5px;
     width: 720px;
+    height: 100%;
     padding: 20px 0px 120px;
     flex-direction: column;
     gap: 30px;

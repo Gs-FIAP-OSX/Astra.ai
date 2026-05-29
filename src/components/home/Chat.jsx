@@ -73,8 +73,20 @@ const Chat = () => {
     }, [id])
 
     useEffect(() => {
-        bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
-    }, [messages])
+        if (isLoading) return
+
+        const el = bottomRef.current
+        if (!el) return
+
+        const timeout = setTimeout(() => {
+            el.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end'
+            })
+        }, 50)
+
+        return () => clearTimeout(timeout)
+    }, [isLoading])
 
     const isStreaming = isLoading && messages.at(-1)?.role === 'assistant'
     const isPending = isLoading && messages.at(-1)?.role === 'user'

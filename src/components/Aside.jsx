@@ -60,9 +60,9 @@ const Aside = () => {
     const [editingValue, setEditingValue] = useState('')
     const [deletingChatId, setDeletingChatId] = useState(null)
 
-    const reloadChats = useCallback(async () => {
+    const reloadChats = useCallback(async (silent = false) => {
         try {
-            setLoading(true)
+            if (!silent) setLoading(true)
 
             const data = await ChatService.list()
 
@@ -75,7 +75,7 @@ const Aside = () => {
         } catch (err) {
             console.error('[AsideChat] erro ao listar:', err)
         } finally {
-            setLoading(false)
+            if (!silent) setLoading(false)
         }
     }, [])
 
@@ -113,7 +113,7 @@ const Aside = () => {
     }, [])
 
     useEffect(() => {
-        const handler = () => reloadChats()
+        const handler = () => reloadChats(true)
 
         window.addEventListener('chat:created', handler)
         return () => window.removeEventListener('chat:created', handler)
@@ -194,9 +194,9 @@ const Aside = () => {
                     <h2>Recentes</h2>
                     <section className='aside-grid-chats'>
 
-                        {loading && <p className="chat-aside-loading"><div className='loader'/></p>}
+                        {loading && <p className="chat-aside-loading"><div className='loader' /></p>}
 
-                        {!loading && chats.length === 0 && (<p className="chat-nochats"><Frown size={17}/> Nenhum chat ainda!</p>)}
+                        {!loading && chats.length === 0 && (<p className="chat-nochats"><Frown size={17} /> Nenhum chat ainda!</p>)}
 
                         {chats.map(chat => {
                             const isActive = chat.id === activeIdFromRoute
