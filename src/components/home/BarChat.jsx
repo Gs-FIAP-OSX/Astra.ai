@@ -121,7 +121,7 @@ const BarChat = ({ onSend, onStop, isLoading, active }) => {
           disabled={isLoading || files.length >= MAX_FILES}
           aria-label="Anexar arquivo"
         >
-          <Plus size={18} />
+          <Plus size={19} />
         </button>
 
         <input
@@ -143,7 +143,7 @@ const BarChat = ({ onSend, onStop, isLoading, active }) => {
               onClick={onStop}
               aria-label="Parar geração"
             >
-              <Square size={16} />
+              <Square size={18} />
             </button>
           ) : (
             <button
@@ -152,7 +152,7 @@ const BarChat = ({ onSend, onStop, isLoading, active }) => {
               disabled={!canSend}
               aria-label="Enviar mensagem"
             >
-              <Send size={16} />
+              <Send size={18} />
             </button>
           )}
         </div>

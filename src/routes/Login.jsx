@@ -29,7 +29,7 @@ const Login = () => {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        if (user) navigate('/home', { replace: true })
+        if (user) navigate('/chat', { replace: true })
     }, [user, navigate])
 
     const handleChange = (e) => {
@@ -51,13 +51,13 @@ const Login = () => {
             if (isRegister) {
                 await register(form.name, form.email, form.password)
                 localStorage.setItem('first_login', 'true')
-                window.location.href = '/home'
+                window.location.href = '/chat'
                 return
             }
 
             await login(form.email, form.password)
             localStorage.setItem('first_login', 'false')
-            window.location.href = '/home'
+            window.location.href = '/chat'
         } catch (err) {
             setError(err.message)
             clearTimeout(window.__errorTimer)
