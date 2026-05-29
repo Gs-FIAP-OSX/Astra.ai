@@ -1,6 +1,7 @@
 .aside-main {
     display: flex;
     flex-direction: column;
+    min-width: 290px;
     width: 290px;
     height: 100vh;
     border-right: 1px solid #1e1e1e;
@@ -8,6 +9,7 @@
 }
 
 .aside-main.collapsed {
+    min-width: 50px;
     width: 50px;
     align-items: center;
 }
