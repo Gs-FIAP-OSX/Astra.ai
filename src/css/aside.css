@@ -6,16 +6,23 @@
     height: 100vh;
     border-right: 1px solid #1e1e1e;
     overflow-x: hidden;
-    transition: width 0.15s ease;
 }
 
 .aside-main.collapsed {
     width: 50px;
+    align-items: center;
 }
 
 .aside-main.collapsed .aside-header img {
     display: none;
 }
+
+.aside-main.collapsed .aside-content .aside-btn p,
+.aside-main.collapsed .aside-content .aside-btn span,
+.aside-main.collapsed .aside-content .aside-btn h3 {
+    display: none;
+}
+
 
 .aside-header {
     display: flex;
@@ -43,6 +50,142 @@
 }
 
 .aside-header button:hover {
-    background: #151515;
+    background: var(--hover-2);
     color: var(--light-color);
+}
+
+
+.aside-content {
+    margin-top: 25px;
+}
+
+.aside-content .aside-btn {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 7px 5px;
+    gap: 10px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray-color-2);
+    white-space: nowrap;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.aside-content .aside-btn:hover {
+    background: var(--hover-2);
+    color: var(--gray-color-1);
+}
+
+.aside-content .aside-btn:hover span {
+    opacity: 1;
+}
+
+.aside-content .aside-btn .icon {
+    color: var(--gray-color-1) !important;
+    transition: var(--transition);
+}
+
+.aside-content .aside-btn:hover .icon {
+    transform: scale(1.1);
+}
+
+.aside-content .aside-btn span {
+    opacity: 0;
+    display: flex;
+    margin-left: auto;
+    margin-right: 10px;
+    font-size: 0.8rem;
+    font-weight: 200;
+    color: var(--gray-color-4);
+}
+
+.aside-content .aside-btn h3 {
+    margin-left: auto;
+    display: flex;
+    padding: 2px 10px;
+    border: 1px solid #2d2d2d;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: var(--gray-color-3);
+}
+
+.aside-content .aside-btn.bloq {
+    color: #4b4b4b;
+}
+
+.aside-content .aside-btn.bloq .icon {
+    color: #4b4b4b !important;
+}
+
+
+.aside-content-scrool h2 {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--gray-color-3);
+}
+
+.aside-grid-chats {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.aside-card-chat {
+    padding: 5px 7px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.aside-card-chat:hover {
+    background: var(--hover-2);
+    color: var(--gray-color-1);
+    cursor: pointer;
+}
+
+.aside-card-chat h1 {
+    max-width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--gray-color-2);
+    overflow: hidden;
+}
+
+.aside-card-chat:hover div {
+    opacity: 1;
+}
+
+.aside-card-chat div {
+    opacity: 0;
+    display: flex;
+    margin-left: auto;
+    gap: 2px;
+    transition: var(--transition);
+}
+
+.aside-card-chat div button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 20px;
+    background: transparent;
+    color: var(--gray-color-3);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.aside-card-chat div button:hover {
+    background: #272727;
+    color: var(--gray-color-1);
 }
