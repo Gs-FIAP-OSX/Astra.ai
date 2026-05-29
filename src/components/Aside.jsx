@@ -1,7 +1,7 @@
 import '../css/aside.css'
 import { useEffect, useState } from 'react'
 import logo from '../assets/svg/logo.svg'
-import { Code, Edit, Folder, Search, Sidebar, Trash2 } from '@geist-ui/icons'
+import { ChevronUpDown, Code, Edit, Folder, Search, Sidebar, Trash2 } from '@geist-ui/icons'
 
 const Aside = () => {
 
@@ -54,6 +54,20 @@ const Aside = () => {
                     </section>
                 </div>
             </section>
+            <footer className='aside-profile'>
+                <div className='aside-img-profile'>
+                    <img src="https://avatars.githubusercontent.com/u/182553526?v=4" />
+                </div>
+                <section className='aside-profile-content'>
+                    <div>
+                        <h1>Leonardo Silva</h1>
+                        <p>BASIC</p>
+                    </div>
+                    <section className='aside-btn-profile'>
+                        <ChevronUpDown size={14} />
+                    </section>
+                </section>
+            </footer>
         </aside>
     )
 }

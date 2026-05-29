@@ -1,11 +1,10 @@
 .aside-main {
     display: flex;
     flex-direction: column;
-    padding: 10px;
     width: 290px;
     height: 100vh;
     border-right: 1px solid #1e1e1e;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .aside-main.collapsed {
@@ -19,7 +18,11 @@
 
 .aside-main.collapsed .aside-content .aside-btn p,
 .aside-main.collapsed .aside-content .aside-btn span,
-.aside-main.collapsed .aside-content .aside-btn h3 {
+.aside-main.collapsed .aside-content .aside-btn h3,
+.aside-main.collapsed .aside-content h2,
+.aside-main.collapsed .aside-grid-chats,
+.aside-main.collapsed .aside-profile-content
+{
     display: none;
 }
 
@@ -27,6 +30,7 @@
 .aside-header {
     display: flex;
     align-items: center;
+    padding: 10px;
     width: 100%;
     justify-content: space-between;
 }
@@ -56,6 +60,7 @@
 
 
 .aside-content {
+    padding: 10px;
     margin-top: 25px;
 }
 
@@ -125,6 +130,7 @@
 
 
 .aside-content-scrool h2 {
+    margin-left: 6px;
     margin-top: 30px;
     font-size: 0.8rem;
     font-weight: 300;
@@ -188,4 +194,69 @@
 .aside-card-chat div button:hover {
     background: #272727;
     color: var(--gray-color-1);
+}
+
+.aside-main.collapsed .aside-profile {
+    border: none;
+}
+
+.aside-main.collapsed .aside-profile:hover {
+    background: transparent;
+}
+
+
+.aside-profile {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    padding: 15px 8.5px;
+    gap: 10px;
+    border-top: 1px solid #1e1e1e;
+    cursor: pointer;
+    box-shadow: 0px -0px 0px 0px red;
+}
+
+.aside-profile:hover {
+    background: #0b0b0b;
+}
+
+.aside-img-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    border: 1px solid var(--gray-color-4);
+    border-radius: 100%;
+}
+
+.aside-img-profile img {
+    display: flex;
+    width: 100%;
+}
+
+.aside-profile-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.aside-profile-content h1 {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--gray-color-1);
+}
+
+.aside-profile-content p {
+    margin-top: -5px;
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: var(--gray-color-2);
+}
+
+.aside-btn-profile {
+    margin-left: auto;
 }
