@@ -10,31 +10,28 @@ const New = () => {
     const navigate = useNavigate()
     const { user } = useUser()
 
-    const getFirstName = () => {
-        return (user?.profile?.name || '')
-            .trim()
-            .split(/\s+/)
-            .filter(Boolean)[0] || '';
+    const FirstName = () => {
+        return user?.profile?.name?.trim().split(/\s+/).filter(Boolean)[0] || ''
     }
 
     const welcomes = [
-        `${getFirstName()} está de volta.`,
-        `De volta, ${getFirstName()}?`,
-        `Bem-vindo de volta, ${getFirstName()}.`,
+        `${FirstName()} está de volta.`,
+        `De volta, ${FirstName()}?`,
+        `Bem-vindo de volta, ${FirstName()}.`,
         `Pi Pi Pi Bwummm.`,
-        `Reentrada confirmada, ${getFirstName()}.`,
-        `${getFirstName()}, órbita retomada.`,
-        `Retorno suave, ${getFirstName()}.`,
-        `${getFirstName()}, trajetória restaurada.`,
-        `Você voltou, ${getFirstName()}.`,
-        `Pronto de novo, ${getFirstName()}?`,
-        `${getFirstName()}, sinal restabelecido.`,
-        `Bem-vindo, ${getFirstName()}.`,
-        `De volta ao fluxo, ${getFirstName()}.`,
+        `Reentrada confirmada, ${FirstName()}.`,
+        `${FirstName()}, órbita retomada.`,
+        `Retorno suave, ${FirstName()}.`,
+        `${FirstName()}, trajetória restaurada.`,
+        `Você voltou, ${FirstName()}.`,
+        `Pronto de novo, ${FirstName()}?`,
+        `${FirstName()}, sinal restabelecido.`,
+        `Bem-vindo, ${FirstName()}.`,
+        `De volta ao fluxo, ${FirstName()}.`,
         `Chega! me demito.`,
-        `${getFirstName()}, missão continua.`,
-        `Retomando, ${getFirstName()}.`,
-        `Tudo certo, ${getFirstName()}?`,
+        `${FirstName()}, missão continua.`,
+        `Retomando, ${FirstName()}.`,
+        `Tudo certo, ${FirstName()}?`,
     ]
 
     const welcome = welcomes[new Date().getHours() % welcomes.length]

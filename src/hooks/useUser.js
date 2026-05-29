@@ -37,6 +37,8 @@ async function requestUser() {
     id: data.id,
     email: data.email,
     profile: data.profile,
+    plan: data.plan,
+    status: data.status,
     settings: data.settings,
   }
 }

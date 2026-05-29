@@ -159,13 +159,25 @@
 }
 
 .aside-card-chat h1 {
-    max-width: 200px;
+    max-width: 205px;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 0.85rem;
     font-weight: 400;
     color: var(--gray-color-2);
     overflow: hidden;
+}
+
+.aside-card-chat input {
+    font-family: "Poppins", sans-serif;
+    width: 205px;
+    display: flex;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--gray-color-2);
 }
 
 .aside-card-chat:hover div {
@@ -253,7 +265,7 @@
 }
 
 .aside-profile-content p {
-    margin-top: -5px;
+    margin-top: -4px;
     font-size: 0.65rem;
     font-weight: 300;
     color: var(--gray-color-2);
@@ -261,4 +273,22 @@
 
 .aside-btn-profile {
     margin-left: auto;
+}
+
+.chat-aside-loading {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    color: var(--gray-color-3);
+}
+
+.chat-nochats {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--gray-color-3);
+    gap: 5px;
+    font-size: 0.8rem;
+    font-weight: 300;
 }
