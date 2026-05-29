@@ -17,6 +17,28 @@ const New = () => {
             .filter(Boolean)[0] || '';
     }
 
+    const welcomes = [
+        `${getFirstName()} está de volta.`,
+        `De volta, ${getFirstName()}?`,
+        `Bem-vindo de volta, ${getFirstName()}.`,
+        `Pi Pi Pi Bwummm.`,
+        `Reentrada confirmada, ${getFirstName()}.`,
+        `${getFirstName()}, órbita retomada.`,
+        `Retorno suave, ${getFirstName()}.`,
+        `${getFirstName()}, trajetória restaurada.`,
+        `Você voltou, ${getFirstName()}.`,
+        `Pronto de novo, ${getFirstName()}?`,
+        `${getFirstName()}, sinal restabelecido.`,
+        `Bem-vindo, ${getFirstName()}.`,
+        `De volta ao fluxo, ${getFirstName()}.`,
+        `Chega! me demito.`,
+        `${getFirstName()}, missão continua.`,
+        `Retomando, ${getFirstName()}.`,
+        `Tudo certo, ${getFirstName()}?`,
+    ]
+
+    const welcome = welcomes[new Date().getHours() % welcomes.length]
+
     const {
         isLoading,
         sendMessage,
@@ -54,7 +76,7 @@ const New = () => {
         <main className="new-main">
             <section className="new-welcome">
                 <img src={icon} />
-                <h1>De volta ao trabalho, {getFirstName()}?</h1>
+                <h1 style={{ '--chars': welcome.length }} className="typing">{welcome}</h1>
             </section>
             <section className="new-input">
                 <BarChat

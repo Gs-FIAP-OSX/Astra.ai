@@ -25,3 +25,33 @@ body {
     background: var(--background);
     color: var(--light-color);
 }
+
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    border-right: 2px solid currentColor;
+    animation:
+        typing 1.5s steps(var(--chars)) forwards,
+        hideCursor 0s forwards;
+    animation-delay:
+        0s,
+        1.5s;
+}
+
+@keyframes typing {
+    from {
+        max-width: 0;
+    }
+
+    to {
+        max-width: 1000px;
+    }
+}
+
+@keyframes hideCursor {
+    to {
+        border-right-color: transparent;
+    }
+}
