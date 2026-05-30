@@ -18,7 +18,7 @@ const New = () => {
         `${FirstName()} está de volta.`,
         `De volta, ${FirstName()}?`,
         `Bem-vindo de volta, ${FirstName()}.`,
-        `Pi Pi Pi Bwummm.`,
+        `Pi Pi Pi Pi Buummmmmmm.`,
         `Reentrada confirmada, ${FirstName()}.`,
         `${FirstName()}, órbita retomada.`,
         `Retorno suave, ${FirstName()}.`,
@@ -34,7 +34,7 @@ const New = () => {
         `Tudo certo, ${FirstName()}?`,
     ]
 
-    const welcome = welcomes[new Date().getHours() % welcomes.length]
+    const welcome = welcomes[new Date().getHours() % welcomes.length - 1]
 
     const {
         isLoading,

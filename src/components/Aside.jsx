@@ -185,7 +185,7 @@ const Aside = () => {
             </header>
             <section className='aside-content'>
                 <button className='aside-btn' onClick={handleNewChat}><Edit className='icon' size={19} /><p>Novo bate-papo</p><span>Shift + a</span></button>
-                <button className='aside-btn'><Search className='icon' size={19} /><p>Procurar</p><span>Ctrl + p</span></button>
+                <button className='aside-btn' onClick={() => navigate('recents')} ><Search className='icon' size={19} /><p>Procurar</p><span>Ctrl + p</span></button>
 
                 <div className='aside-content-scrool'>
                     <button className='aside-btn'><Folder className='icon' size={19} /><p>Arquivos</p></button>

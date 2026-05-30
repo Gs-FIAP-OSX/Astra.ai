@@ -5,6 +5,7 @@ import ProtectedRoute from "./routes/ProtectedRoute"
 import { ConsoleBanner } from "./hooks/ConsoleBanner"
 import New from "./components/home/New"
 import Chat from "./components/home/Chat"
+import Recents from "./routes/Recents"
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
           <Route index element={<Navigate to='new' />} />
             <Route path="new" element={<New />} />
             <Route path=":id" element={<Chat />} />
+            <Route path="recents" element={<Recents />} />
           </Route>
         </Route>
       </Routes>
