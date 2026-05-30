@@ -65,7 +65,7 @@
     padding: 15px;
 }
 
-.bar-chat-main.active .bar-chat-textarea{
+.bar-chat-main.active .bar-chat-textarea {
     margin: 5px 5px;
 }
 
@@ -395,6 +395,16 @@
     font-size: 0.9rem;
     font-weight: 400;
     color: var(--light-color);
+}
+
+.recents-card-chat div input {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--light-color);
+    background: transparent;
+    outline: none;
+    border: none;
 }
 
 .recents-card-chat div p {

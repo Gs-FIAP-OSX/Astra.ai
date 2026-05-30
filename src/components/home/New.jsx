@@ -16,25 +16,20 @@ const New = () => {
 
     const welcomes = [
         `${FirstName()} está de volta.`,
-        `De volta, ${FirstName()}?`,
-        `Bem-vindo de volta, ${FirstName()}.`,
-        `Pi Pi Pi Pi Buummmmmmm.`,
         `Reentrada confirmada, ${FirstName()}.`,
+        `Pi Pi Pi Pi Buummmmmmm.`,
         `${FirstName()}, órbita retomada.`,
         `Retorno suave, ${FirstName()}.`,
+        `Bem-vindo de volta, ${FirstName()}.`,
         `${FirstName()}, trajetória restaurada.`,
-        `Você voltou, ${FirstName()}.`,
         `Pronto de novo, ${FirstName()}?`,
-        `${FirstName()}, sinal restabelecido.`,
         `Bem-vindo, ${FirstName()}.`,
         `De volta ao fluxo, ${FirstName()}.`,
         `Chega! me demito.`,
-        `${FirstName()}, missão continua.`,
-        `Retomando, ${FirstName()}.`,
         `Tudo certo, ${FirstName()}?`,
     ]
 
-    const welcome = welcomes[new Date().getHours() % welcomes.length - 1]
+    const welcome = welcomes[Math.floor(new Date().getHours() / 2) % welcomes.length]
 
     const {
         isLoading,
