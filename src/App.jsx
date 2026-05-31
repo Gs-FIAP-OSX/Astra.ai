@@ -6,19 +6,22 @@ import { ConsoleBanner } from "./hooks/ConsoleBanner"
 import New from "./components/home/New"
 import Chat from "./components/home/Chat"
 import Recents from "./routes/Recents"
-import { useUser } from "./hooks/useUser"
+import { useAuth } from "./hooks/useAuth"
 
 const App = () => {
 
   ConsoleBanner()
 
-  const { user } = useUser()
-  const isLogged = Boolean(user)
+  const { loading, isAuthenticated } = useAuth()
+
+  if (loading){
+    return
+  }
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to={isLogged ? '/home' : '/login'} />} />
+        <Route path="/" element={<Navigate to={isAuthenticated ? '/home' : '/login'} />} />
         <Route path="/home" element={<Navigate to='/chat' />} />
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoute />}>
