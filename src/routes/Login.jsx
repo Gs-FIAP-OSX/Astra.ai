@@ -80,7 +80,7 @@ const Login = () => {
                 <h1>{isRegister ? 'Crie sua conta' : 'Faça login na sua conta'}</h1>
                 <h2>{isRegister ? 'Comece a decifrar com o ASTRA.' : 'Continue decifrando com o ASTRA.'}</h2>
 
-                <form onSubmit={handleSubmit} noValidate>
+                <form name='form-login' onSubmit={handleSubmit} noValidate>
 
                     {isRegister && (
                         <article className='login-input'>
