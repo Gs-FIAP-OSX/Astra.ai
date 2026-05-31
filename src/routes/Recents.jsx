@@ -98,7 +98,7 @@ const Recents = () => {
         try {
             await ChatService.delete(id)
             setChats(prev => prev.filter(chat => chat.id !== id))
-            navigate("/chat/new", { replace: true })
+            navigate("/new", { replace: true })
         } catch (err) {
             console.error("[Recents] erro ao deletar:", err)
         } finally {
@@ -116,7 +116,7 @@ const Recents = () => {
             <header className="recents-header">
                 <h1>Conversas</h1>
                 <div>
-                    <button className="active" onClick={() => navigate("/chat/new")}>
+                    <button className="active" onClick={() => navigate("/new")}>
                         Novo bate-papo
                     </button>
                 </div>

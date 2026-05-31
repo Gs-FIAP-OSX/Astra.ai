@@ -6,25 +6,24 @@ import { ConsoleBanner } from "./hooks/ConsoleBanner"
 import New from "./components/home/New"
 import Chat from "./components/home/Chat"
 import Recents from "./routes/Recents"
-import { useAuth } from "./hooks/useAuth"
+import Error from "./routes/Error"
 
 const App = () => {
 
   ConsoleBanner()
 
-  const { isAuthenticated } = useAuth()
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to={isAuthenticated ? '/home' : '/login'} />} />
-        <Route path="/home" element={<Navigate to='/chat' />} />
+        <Route path="*" element={<Error />} />
+        <Route path="/home" element={<Navigate to='/' />} />
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/chat" element={<Home />} >
+          <Route path="/" element={<Home />} >
             <Route index element={<Navigate to='new' />} />
             <Route path="new" element={<New />} />
-            <Route path=":id" element={<Chat />} />
+            <Route path="/chat/:id" element={<Chat />} />
             <Route path="recents" element={<Recents />} />
           </Route>
         </Route>

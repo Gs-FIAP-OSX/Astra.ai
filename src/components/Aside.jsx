@@ -143,7 +143,7 @@ const Aside = () => {
     }, [reloadChats])
 
     const handleNewChat = () => {
-        navigate('/chat/new')
+        navigate('/new')
     }
 
     const startDeleting = (id) => {
@@ -160,7 +160,7 @@ const Aside = () => {
             setChats(prev => prev.filter(chat => chat.id !== id))
 
             if (id === activeIdFromRoute) {
-                navigate('/chat/new', { replace: true })
+                navigate('/new', { replace: true })
             }
         } catch (err) {
             console.error('[AsideChat] erro ao deletar:', err)
@@ -223,7 +223,7 @@ const Aside = () => {
     return (
         <aside className={`aside-main ${isOpen && 'collapsed'}`}>
             <header className="aside-header">
-                <Link to='/chat/new'>
+                <Link to='/new'>
                     <img src={logo} alt="logo ASTRA" />
                 </Link>
                 <button onClick={handleToggleAside}><Sidebar size={16} /></button>
