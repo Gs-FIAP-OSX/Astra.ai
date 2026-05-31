@@ -1,5 +1,5 @@
 import '../css/aside.css'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import logo from '../assets/svg/logo.svg'
 import { Check, ChevronUpDown, Code, Edit, Folder, Frown, Search, Sidebar, Trash2, X } from '@geist-ui/icons'
 import { useNavigate, useParams, Link } from 'react-router-dom'
@@ -13,6 +13,26 @@ const Aside = () => {
     const [isOpen, setIsOpen] = useState(() => {
         return localStorage.getItem('aside_open') !== 'false'
     })
+
+
+    const scrollRef = useRef(null)
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+        const element = scrollRef.current
+
+        if (!element) return
+
+        const handleScroll = () => {
+            setIsScrolled(element.scrollTop > 1)
+        }
+
+        element.addEventListener('scroll', handleScroll)
+
+        return () => {
+            element.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
     const getFirstName = () => {
         return (user?.profile?.name || '')
@@ -178,21 +198,25 @@ const Aside = () => {
     }
 
     return (
-        <aside className={`aside-main ${isOpen ? 'collapsed' : ''}`}>
+        <aside className={`aside-main ${isOpen && 'collapsed'}`}>
             <header className="aside-header">
-                <img src={logo} alt="logo ASTRA" />
-                <button onClick={handleToggleAside}><Sidebar size={17} /></button>
+                <Link to='/chat/new'>
+                    <img src={logo} alt="logo ASTRA" />
+                </Link>
+                <button onClick={handleToggleAside}><Sidebar size={16} /></button>
             </header>
             <section className='aside-content'>
-                <button className='aside-btn' onClick={handleNewChat}><Edit className='icon' size={19} /><p>Novo bate-papo</p><span>Shift + a</span></button>
-                <button className='aside-btn' onClick={() => navigate('recents')} ><Search className='icon' size={19} /><p>Procurar</p><span>Ctrl + p</span></button>
+                <div className='aside-first-btn'>
+                    <button className='aside-btn' onClick={handleNewChat}><Edit className='icon' size={19} /><p>Novo bate-papo</p><span>Shift + a</span></button>
+                    <button className='aside-btn' onClick={() => navigate('recents')} ><Search className='icon' size={19} /><p>Procurar</p><span>Ctrl + p</span></button>
+                </div>
 
-                <div className='aside-content-scrool'>
+                <div  className={`aside-content-scrool ${isScrolled ? 'aside-content-scrolled' : ''}`}>
                     <button className='aside-btn'><Folder className='icon' size={19} /><p>Arquivos</p></button>
                     <button className='aside-btn bloq'><Code className='icon' size={19} /><p>Código</p><h3>Indisponível</h3></button>
 
                     <h2>Recentes</h2>
-                    <section className='aside-grid-chats'>
+                    <section className='aside-grid-chats' ref={scrollRef}>
 
                         {loading && <p className="chat-aside-loading"><div className='loader' /></p>}
 

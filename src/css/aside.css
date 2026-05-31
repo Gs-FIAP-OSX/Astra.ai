@@ -23,8 +23,7 @@
 .aside-main.collapsed .aside-content .aside-btn h3,
 .aside-main.collapsed .aside-content h2,
 .aside-main.collapsed .aside-grid-chats,
-.aside-main.collapsed .aside-profile-content
-{
+.aside-main.collapsed .aside-profile-content {
     display: none;
 }
 
@@ -32,20 +31,20 @@
 .aside-header {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 15px 10px;
     width: 100%;
     justify-content: space-between;
 }
 
 .aside-header img {
-    width: 75px;
+    width: 72px;
 }
 
 .aside-header button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
+    width: 25px;
     height: 25px;
     border: none;
     border-radius: 4px;
@@ -62,8 +61,15 @@
 
 
 .aside-content {
-    padding: 10px;
-    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    margin-top: 20px;
+}
+
+.aside-first-btn {
+    padding: 0 10px;
 }
 
 .aside-content .aside-btn {
@@ -130,6 +136,30 @@
     color: #4b4b4b !important;
 }
 
+.aside-content-scrool {
+    padding: 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    border-top: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.aside-content-scrolled {
+    border-top: 1px solid #1e1e1e;
+}
+
+.aside-content-scrool::-webkit-scrollbar {
+    display: flex;
+    width: 5px;
+}
+
+.aside-content-scrool::-webkit-scrollbar-thumb {
+    background: var(--hover-2);
+    border-radius: 20px;
+}
 
 .aside-content-scrool h2 {
     margin-left: 6px;
@@ -220,6 +250,8 @@
 
 
 .aside-profile {
+    background: #000;
+    width: 290px;
     display: flex;
     align-items: center;
     margin-top: auto;
