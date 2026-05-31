@@ -135,7 +135,7 @@ const BarChat = ({ onSend, onStop, isLoading, active }) => {
         />
 
         <div className="bar-chat-right">
-          <p className="bar-chat-model">ØSX Astra 4.7</p>
+          <p className="bar-chat-model">ØSX Astra 1.3</p>
 
           {isLoading ? (
             <button
