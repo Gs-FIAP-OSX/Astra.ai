@@ -24,7 +24,7 @@ const ModalProfile = () => {
     return (
         <article className="modal-profile">
             <p>{user?.email}</p>
-            <button onClick={() => navigate('/chat/settings')}><Settings size={19} />Configurações</button>
+            <button onClick={() => navigate('/settings')}><Settings size={19} />Configurações</button>
             <button onClick={() => window.open('https://osx-org.vercel.app/', '_blank', 'noopener,noreferrer')}><HelpCircle size={19} />Ajuda</button>
             <hr />
             <button onClick={() => window.open('https://osx-org.vercel.app/', '_blank', 'noopener,noreferrer')}><Info size={19} />Saiba mais</button>

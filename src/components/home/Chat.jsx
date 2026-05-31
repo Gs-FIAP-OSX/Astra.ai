@@ -58,7 +58,7 @@ const Chat = () => {
                 }
             } catch {
                 if (!controller.signal.aborted) {
-                    navigate('/chat/new', { replace: true })
+                    navigate('/new', { replace: true })
                 }
             }
         }
