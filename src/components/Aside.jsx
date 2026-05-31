@@ -5,6 +5,7 @@ import { Check, ChevronUpDown, Code, Edit, Folder, Frown, Search, Sidebar, Trash
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { ChatService } from '../services/chatService'
 import { useUser } from '../hooks/useUser'
+import ModalProfile from './aside/ModalProfile'
 
 const Aside = () => {
 
@@ -14,6 +15,8 @@ const Aside = () => {
         return localStorage.getItem('aside_open') !== 'false'
     })
 
+    const [isProfileOpen, setIsProfileOpen] = useState(false)
+    const profileRef = useRef(null)
 
     const scrollRef = useRef(null)
     const [isScrolled, setIsScrolled] = useState(false)
@@ -197,6 +200,26 @@ const Aside = () => {
         }
     }
 
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                profileRef.current &&
+                !profileRef.current.contains(event.target)
+            ) {
+                setIsProfileOpen(false)
+            }
+        }
+
+        if (isProfileOpen) {
+            document.addEventListener('mousedown', handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [isProfileOpen])
+
     return (
         <aside className={`aside-main ${isOpen && 'collapsed'}`}>
             <header className="aside-header">
@@ -211,7 +234,7 @@ const Aside = () => {
                     <button className='aside-btn' onClick={() => navigate('recents')} ><Search className='icon' size={19} /><p>Procurar</p><span>Ctrl + p</span></button>
                 </div>
 
-                <div  className={`aside-content-scrool ${isScrolled ? 'aside-content-scrolled' : ''}`}>
+                <div className={`aside-content-scrool ${isScrolled ? 'aside-content-scrolled' : ''}`}>
                     <button className='aside-btn'><Folder className='icon' size={19} /><p>Arquivos</p></button>
                     <button className='aside-btn bloq'><Code className='icon' size={19} /><p>Código</p><h3>Indisponível</h3></button>
 
@@ -268,20 +291,28 @@ const Aside = () => {
                     </section>
                 </div>
             </section>
-            <footer className='aside-profile'>
-                <div className='aside-img-profile'>
-                    <img src={user?.profile?.photo || 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} />
-                </div>
-                <section className='aside-profile-content'>
-                    <div>
-                        <h1>{getFirstName()} {getLastName()}</h1>
-                        <p>{user?.plan}</p>
+
+            <div ref={profileRef}>
+                <footer className={`aside-profile ${isProfileOpen && 'aside-profile-open'}`} onClick={() => setIsProfileOpen(prev => !prev)} >
+                    <div className='aside-img-profile'>
+                        <img src={user?.profile?.photo || 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} />
                     </div>
-                    <section className='aside-btn-profile'>
-                        <ChevronUpDown size={14} />
+                    <section className='aside-profile-content'>
+                        <div>
+                            <h1>{getFirstName()} {getLastName()}</h1>
+                            <p>{user?.plan}</p>
+                        </div>
+                        <section className='aside-btn-profile'>
+                            <ChevronUpDown size={14} />
+                        </section>
                     </section>
-                </section>
-            </footer>
+                </footer>
+                {isProfileOpen && (
+                    <ModalProfile
+                        onClose={() => setIsProfileOpen(false)}
+                    />
+                )}
+            </div>
         </aside>
     )
 }

@@ -12,11 +12,7 @@ const App = () => {
 
   ConsoleBanner()
 
-  const { loading, isAuthenticated } = useAuth()
-
-  if (loading){
-    return
-  }
+  const { isAuthenticated } = useAuth()
 
   return (
     <BrowserRouter>
@@ -26,7 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/chat" element={<Home />} >
-          <Route index element={<Navigate to='new' />} />
+            <Route index element={<Navigate to='new' />} />
             <Route path="new" element={<New />} />
             <Route path=":id" element={<Chat />} />
             <Route path="recents" element={<Recents />} />

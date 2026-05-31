@@ -1,3 +1,4 @@
+import '../css/recents.css'
 import { useEffect, useMemo, useState } from "react"
 import { Edit, Search, Trash2, X, Check, Frown } from "@geist-ui/icons"
 import { Link, useNavigate } from "react-router-dom"
