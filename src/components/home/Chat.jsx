@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useChat } from '../../hooks/useChat'
 import BarChat from './BarChat'
@@ -34,6 +34,8 @@ const Chat = () => {
     const navigate = useNavigate()
     const { messages, isLoading, error, sendMessage, stop, reset, loadChat } = useChat()
 
+    const [chatTitle, setChatTitle] = useState('')
+
     const bottomRef = useRef(null)
     const fetchAbortRef = useRef(null)
     const loadedIdRef = useRef(null)
@@ -51,7 +53,10 @@ const Chat = () => {
         const load = async () => {
             try {
                 const data = await ChatService.get(id)
+
                 if (controller.signal.aborted) return
+
+                setChatTitle(data?.title || data?.chat?.[0]?.title || 'Novo Chat')
 
                 if (data?.chat?.length) {
                     loadChat(data.chat, id)
@@ -93,6 +98,14 @@ const Chat = () => {
 
     const handleSend = useCallback((payload) => sendMessage(payload), [sendMessage])
     const handleStop = useCallback(() => stop(), [stop])
+
+    useEffect(() => {
+        if (!id) return
+
+        document.title = chatTitle
+            ? `${chatTitle} - Astra`
+            : 'Astra'
+    }, [chatTitle, id])
 
     return (
         <main className="chat-main">

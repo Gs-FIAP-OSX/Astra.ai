@@ -24,7 +24,7 @@ const New = () => {
         `${FirstName()}, trajetória restaurada.`,
         `Pronto de novo, ${FirstName()}?`,
         `Bem-vindo, ${FirstName()}.`,
-        `De volta ao fluxo, ${FirstName()}.`,
+        `Quando quiser, ${FirstName()}.`,
         `Chega! me demito.`,
         `Tudo certo, ${FirstName()}?`,
     ]

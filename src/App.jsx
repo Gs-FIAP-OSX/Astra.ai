@@ -7,6 +7,7 @@ import New from "./components/home/New"
 import Chat from "./components/home/Chat"
 import Recents from "./routes/Recents"
 import Error from "./routes/Error"
+import ChangeTitle from "./hooks/ChangeTitle"
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <ChangeTitle />
       <Routes>
         <Route path="*" element={<Error />} />
         <Route path="/home" element={<Navigate to='/' />} />
