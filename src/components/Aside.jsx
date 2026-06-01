@@ -221,7 +221,7 @@ const Aside = () => {
     }, [isProfileOpen])
 
     return (
-        <aside className={`aside-main ${isOpen && 'collapsed'}`}>
+        <aside className={`aside-main ${!isOpen && 'collapsed'}`}>
             <header className="aside-header">
                 <Link to='/new'>
                     <img src={logo} alt="logo ASTRA" />
