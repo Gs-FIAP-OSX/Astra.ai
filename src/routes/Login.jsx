@@ -50,13 +50,11 @@ const Login = () => {
         try {
             if (isRegister) {
                 await register(form.name, form.email, form.password)
-                localStorage.setItem('first_login', 'true')
                 window.location.href = '/new'
                 return
             }
 
             await login(form.email, form.password)
-            localStorage.setItem('first_login', 'false')
             window.location.href = '/new'
         } catch (err) {
             setError(err.message)
@@ -66,6 +64,7 @@ const Login = () => {
             }, 4000)
         } finally {
             setLoading(false)
+            localStorage.setItem('aside_open', 'true')
         }
     }
 
