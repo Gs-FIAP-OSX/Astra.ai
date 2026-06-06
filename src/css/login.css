@@ -18,12 +18,12 @@
     display: flex;
     width: 100vw;
     height: fit-content;
-    padding: 25px 40px;
+    padding: 20px 50px;
 }
 
 .login-header img {
     display: flex;
-    width: 90px;
+    width: 80px;
 }
 
 .login-wrapper {
@@ -45,7 +45,7 @@
 }
 
 .login-wrapper h2 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 300;
     color: #969696;
 }
@@ -60,7 +60,7 @@
 .login-input {
     display: flex;
     align-items: center;
-    padding: 6px 13px;
+    padding: 5px 11px;
     width: 320px;
     border: 1px solid #1e1e1e;
     border-radius: 4px;
@@ -102,7 +102,7 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s ease;
@@ -122,7 +122,7 @@
 .btn-confirm img {
     display: flex;
     width: fit-content;
-    height: 27px;
+    height: 25.35px;
 }
 
 .login-wrapper div {
@@ -143,7 +143,7 @@
 }
 
 .login-wrapper p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 300;
     color: #969696;
 }
@@ -164,15 +164,13 @@
     margin-top: 20px;
     margin-bottom: 10px;
     display: flex;
-}
-
-.login-footer p {
-    font-size: 0.7rem;
-    font-weight: 200;
+    font-size: 0.65rem;
+    font-weight: 300;
     color: #878787;
+    gap: 20px;
 }
 
-.login-footer p a {
+.login-footer a {
     color: #878787;
     text-decoration: underline;
     text-underline-offset: 2px;

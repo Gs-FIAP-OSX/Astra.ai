@@ -83,7 +83,7 @@ const Login = () => {
 
                     {isRegister && (
                         <article className='login-input'>
-                            <User size={18} />
+                            <User size={16} />
 
                             <input
                                 type="text"
@@ -99,7 +99,7 @@ const Login = () => {
                     )}
 
                     <article className='login-input'>
-                        <Mail size={18} />
+                        <Mail size={16} />
 
                         <input
                             type="email"
@@ -119,7 +119,7 @@ const Login = () => {
                             onClick={() => setShowPassword((prev) => !prev)}
                             aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
                         >
-                            {showPassword ? <Unlock size={18} /> : <Lock size={18} />}
+                            {showPassword ? <Unlock size={16} /> : <Lock size={16} />}
                         </button>
 
                         <input
@@ -152,7 +152,9 @@ const Login = () => {
             </section>
 
             <footer className='login-footer'>
-                <p>Ao continuar, você concorda com nossos <Link to='/terms'>Termos de Serviço</Link> e nossa <Link to='/privacy'>Política de Privacidade</Link>.</p>
+                <Link to='/terms'>Termos de Serviço</Link> 
+                <Link to='/privacy'>Política de Privacidade</Link>
+                &copy; 2026 ØSX
             </footer>
         </main>
     )
