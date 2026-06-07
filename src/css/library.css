@@ -1,0 +1,133 @@
+.library-main {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 65px 75px;
+    gap: 25px;
+}
+
+.library-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.library-header h1 {
+    font-family: "Libre Baskerville", serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.library-header div {
+    display: flex;
+    gap: 15px;
+}
+
+.library-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #1e1e1e;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+
+.library-search input {
+    display: flex;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--light-color);
+}
+
+.library-filter {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.library-filter a {
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--light-color);
+    border-radius: 7px;
+}
+
+.library-filter a.active {
+    background: var(--hover-2);
+}
+
+.library-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 7px;
+}
+
+.library-grid header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.library-grid header h1 {
+    display: flex;
+    font-size: 0.85rem;
+    font-weight: 300;
+    gap: 5px;
+    align-items: center;
+}
+
+.library-grid-col-name {
+    display: flex;
+    width: 50%;
+}
+
+.library-grid-cards {
+    margin-top: 20px;
+}
+
+.library-card {
+    display: none;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--hover-2);
+}
+
+.library-card:hover {
+    background: var(--hover-2);
+    border-radius: 10px;
+}
+
+.library-card-left {
+    display: flex;
+    width: 45%;
+    align-items: center;
+    gap: 10px;
+}
+
+.library-card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #282828;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.library-card-img img {
+    display: flex;
+    width: 100%;
+}
+
+.library-card p {
+    font-size: 0.85rem;
+    font-weight: 300;
+}
