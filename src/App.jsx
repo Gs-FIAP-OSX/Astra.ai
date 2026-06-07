@@ -8,6 +8,7 @@ import Chat from "./components/home/Chat"
 import Recents from "./routes/Recents"
 import Error from "./routes/Error"
 import ChangeTitle from "./hooks/ChangeTitle"
+import Library from "./routes/Library"
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="new" element={<New />} />
             <Route path="/chat/:id" element={<Chat />} />
             <Route path="recents" element={<Recents />} />
+            <Route path="library" element={<Library />} />
           </Route>
         </Route>
       </Routes>

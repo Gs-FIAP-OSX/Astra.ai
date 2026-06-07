@@ -235,7 +235,7 @@ const Aside = () => {
                 </div>
 
                 <div className={`aside-content-scrool ${isScrolled ? 'aside-content-scrolled' : ''}`}>
-                    <button className='aside-btn'><Folder className='icon' size={19} /><p>Arquivos</p></button>
+                    <button className='aside-btn' onClick={() => navigate('library')} ><Folder className='icon' size={19} /><p>Arquivos</p></button>
                     <button className='aside-btn bloq'><Code className='icon' size={19} /><p>Código</p><h3>Indisponível</h3></button>
 
                     <h2>Recentes</h2>
